@@ -1,8 +1,11 @@
-# Task Manager
+# Task-Manager
+
 This Task Manager project is designed to efficiently manage tasks through a user-friendly interface. It implements CRUD operations, allowing users to create, read, update, and delete tasks seamlessly. The project includes a front-end page where users can add new to-do items, mark completed tasks with a check, and modify or delete existing tasks. This intuitive design aims to enhance productivity by providing a straightforward way to organize and track tasks.
 
 ## Features
+
 The RESTful API allows users to perform the following operations:
+
 - The Task Manager allows users to perform the following operations:
 - Create tasks: Add new to-do items with fields such as name and completed status.
 - Read tasks: View existing tasks to keep track of pending and completed items.
@@ -10,61 +13,82 @@ The RESTful API allows users to perform the following operations:
 - Delete tasks: Remove tasks that are no longer needed.
 
 ## Deployment
+
 ### Local
- - Clone the repository:
- ```
+
+- Clone the repository:
+
+```
 git clone https://github.com/ericcarry88828/Task-Manager.git
 ```
+
 - Navigate into the directory:
+
 ```
 cd Task-Manager
 ```
+
 - Configure the `.env` file:
+
 ```
 - Open the `.env` file in your preferred text editor.
 - Set the `MONGO_URI` variable to point to your local MongoDB instance. For example:
   MONGO_URI=mongodb://127.0.0.1:27017/your-database-name
 ```
+
 - Install dependencies:
+
 ```
 npm install
 ```
+
 - Start the application:
+
 ```
 npm start
 ```
 
 ### Docker
- - Clone the repository:
+
+- Clone the repository:
+
 ```
 git clone https://github.com/ericcarry88828/Task-Manager.git
 ```
+
 - Navigate into the directory:
+
 ```
 cd Task-Manager
 ```
+
 - Start the application using Docker:
+
 ```
 docker compose up
 ```
 
 - **Important:** If you have changed the MongoDB service name in your `docker-compose.yml`, make sure to update the hostname in the `MONGO_URI`. For example, if the service name is changed to `my-mongo`, set:
-    MONGO_URI=mongodb://my-mongo:27017/your-database-name
-
+  MONGO_URI=mongodb://my-mongo:27017/your-database-name
 
 ## Examples
+
 ### Create a Task
+
 Create a new task using the following request:
 
 ```
 POST /api/v1/tasks
 ```
+
 ```josn
 {
   "name": "do laundry"
 }
 ```
+
 Response:
+
 ```josn
 {
   "task": {
@@ -77,12 +101,15 @@ Response:
 ```
 
 ### Get a Single Task or All Tasks
+
 Retrieve all tasks. Returns a list of task objects and the total count.
 
 ```
 GET /api/v1/auth/jobs
 ```
+
 Response:
+
 ```josn
 {
   "tasks": [
@@ -152,9 +179,11 @@ Response:
 ```
 
 Retrieve a single job by its ID. Returns the job object if found, or an error message if not found.
+
 ```
 GET /api/v1/tasks/68106a836c6b8acd7064fac7
 ```
+
 ```json
 {
   "task": {
@@ -173,14 +202,16 @@ GET /api/v1/tasks/68106a836c6b8acd7064fac7
 ```
 
 ### Update a Task
+
 Update an existing task item using the following request:
 
 ```
 PATCH /api/v1/tasks/68106a836c6b8acd7064fac7
 ```
+
 ```json
 {
-  "name": "cook dinner",
+  "name": "cook dinner"
 }
 ```
 
@@ -204,7 +235,9 @@ Upon successful update of the task item, respond with the updated details of the
 ```
 
 ### Delete a Task Item
+
 Delete an existing task item using the following request:
+
 ```
 DELETE /api/v1/tasks/68106a836c6b8acd7064fac7
 ```
