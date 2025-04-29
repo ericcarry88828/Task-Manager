@@ -1,4 +1,4 @@
-# Blogging Platform API
+# Task Manager
 This Task Manager project is designed to efficiently manage tasks through a user-friendly interface. It implements CRUD operations, allowing users to create, read, update, and delete tasks seamlessly. The project includes a front-end page where users can add new to-do items, mark completed tasks with a check, and modify or delete existing tasks. This intuitive design aims to enhance productivity by providing a straightforward way to organize and track tasks.
 
 ## Features
