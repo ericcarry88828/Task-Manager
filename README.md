@@ -56,8 +56,10 @@ docker compose up
 ### Create a Task
 Create a new task using the following request:
 
-```josn
+```
 POST /api/v1/tasks
+```
+```josn
 {
   "name": "do laundry"
 }
@@ -173,8 +175,10 @@ GET /api/v1/tasks/68106a836c6b8acd7064fac7
 ### Update a Task
 Update an existing task item using the following request:
 
-```json
+```
 PATCH /api/v1/tasks/68106a836c6b8acd7064fac7
+```
+```json
 {
   "name": "cook dinner",
 }
