@@ -4,7 +4,7 @@ const { createCustomError } = require('../errors/custom-error');
 
 const getAllTasks = asyncWrapper(async (req, res) => {
   const tasks = await Task.find({});
-  res.status(200).json({ tasks });
+  res.status(200).json({ tasks, count: tasks.length });
 });
 
 const createTask = asyncWrapper(async (req, res) => {
@@ -21,7 +21,7 @@ const getTask = asyncWrapper(async (req, res, next) => {
   res.status(200).json({ task });
 });
 
-const updateTask = asyncWrapper(async (req, res) => {
+const updateTask = asyncWrapper(async (req, res, next) => {
   const { id } = req.params;
   const task = await Task.findByIdAndUpdate(id, req.body, {
     new: true,
@@ -33,9 +33,9 @@ const updateTask = asyncWrapper(async (req, res) => {
   res.status(200).json({ task });
 });
 
-const deleteTask = asyncWrapper(async (req, res) => {
+const deleteTask = asyncWrapper(async (req, res, next) => {
   const { id } = req.params;
-  const task = await Task.findOneAndDelete({ id: id });
+  const task = await Task.findOneAndDelete({ _id: id });
   if (!task) {
     return next(createCustomError(`No task with id : ${id}`, 404));
   }
